@@ -1,0 +1,27 @@
+---
+- name: PrelimExam
+  hosts: all
+  become: true
+
+  tasks:
+
+  - name: Acquire var.yml
+    include_vars:
+      file: vars.yml
+
+  - name: Install python
+    include_role:
+      name: python
+
+  - name: Install Java Open-JDK
+    include_role:
+      name: java
+
+  - name: Change MOTD
+    include_role:
+      name: changemotd
+
+  - name: Create New User
+    include_role:
+      name: createuser
+

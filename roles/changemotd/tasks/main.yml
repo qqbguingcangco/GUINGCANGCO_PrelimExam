@@ -1,0 +1,9 @@
+---
+# tasks file for changemotd
+  - name: Change MOTD
+    copy:
+       content: "{{ message }} \n"
+       dest: /etc/motd
+
+  - name: Disable Old MOTD
+    shell: "chmod -x /etc/update-motd.d/*"
